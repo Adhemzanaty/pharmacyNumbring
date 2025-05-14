@@ -49,6 +49,14 @@ app.use('/**', (req, res, next) => {
     .catch(next);
 });
 
+export function getPrerenderParams() {
+  return [
+    { window: 'today' },
+    { window: 'week' },
+    { window: 'month' },
+  ];
+}
+
 /**
  * Start the server if this module is the main entry point.
  * The server listens on the port defined by the `PORT` environment variable, or defaults to 4000.
