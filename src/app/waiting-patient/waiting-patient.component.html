@@ -1,0 +1,186 @@
+<div>
+
+
+    <div class="d-flex align-items-center justify-content-center userOption">
+
+        <div class="container main-div row">
+
+        
+            <div class="col-12">
+                <div class="mainTitle text-center my-5">
+                    <h1 class="d-inline">
+                        المريض في الخدمة حاليا
+                    </h1>
+                </div>
+            </div>
+
+
+            <div class="col-xl-4">
+                <div class="mainTitle text-center">
+                    <h5 class="d-inline">
+                       {{ GetCurrentTicketDatat?.patientName}}
+                    </h5>
+                </div>
+            </div>
+
+            <div class="col-xl-4">
+                <div class="mainTitle text-center">
+                    <h4 class="d-inline">
+                      {{ GetCurrentTicketDatat?.takenNumber}}
+                    </h4>
+                </div>
+            </div>
+
+
+            <div class="col-xl-4">
+                <div class="mainTitle text-center">
+                    <h5 class="d-inline">
+                       رقم الشباك <span class="spanNum">  {{ GetCurrentTicketDatat?.windowNumber}}</span>
+                    </h5>
+                </div>
+            </div>
+
+
+
+
+            <div class="col-xl-6 col-lg-6 col-md-12 my-4">
+                <div class="mainButtons">
+                    <button type="button" class="btn btn-success w-100" (click)="GetNextPatient(1)">المريض التالي</button>
+
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-12 my-4">
+                <div class="mainButtons">
+                    <button type="button" class="btn btn-outline-danger w-100">لم يحضر المريض</button>
+
+                </div>
+            </div>
+
+
+
+
+
+            <div class="col-12">
+                <div class="mainTitle text-center my-3">
+                    <h1 class="d-inline">
+                        المرضى في الانتظار
+                    </h1>
+                </div>
+            </div>
+
+
+            <div class="col-12" *ngIf="GetWaitingTicketsData?.length > 0 else WaitingTickets">
+                <div class="mainTable">
+
+                    <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">الاسم</th>
+                            <th scope="col">الرقم الطبي</th>
+                            <th scope="col">استدعاء</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                         
+                          <tr *ngFor="let i of GetWaitingTicketsData">
+                            <th>{{i.patientName}}</th>
+                            <td>{{i.patientId}}</td>
+                            <td>
+                                <button type="button" class="btn btn-outline-danger py-2 px-3" (click)="CallPatient(i.key , i.windowNumber)">استدعاء</button>
+                            </td>
+                          </tr>
+
+
+
+
+                        </tbody>
+                      </table>
+
+                </div>
+            </div>
+
+
+            <ng-template #WaitingTickets> 
+                <div class="col-12">
+                  <div class="mainTitle text-center my-3">
+                      <h5 class="d-inline text-danger">
+                        لا يوجد مرضى في الانتظار حاليا
+                      </h5>
+                  </div>
+                </div>
+            </ng-template>
+
+
+
+
+
+
+
+            <div class="col-12">
+                <div class="mainTitle text-center my-3">
+                    <h1 class="d-inline">
+                        المرضى التي تم خدمتهم
+                    </h1>
+                </div>
+            </div>
+
+
+
+
+            <div class="col-12" *ngIf="GetFinishedTicketsData?.length > 0 else FinishedTickets">
+                <div class="mainTable">
+
+                    <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">الاسم</th>
+                            <th scope="col">الرقم الطبي</th>
+                            <th scope="col">الحالة</th>
+                            <th scope="col">استدعاء</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                         
+                          <tr *ngFor="let i of GetFinishedTicketsData">
+                            <th>{{i.patientName}}</th>
+                            <td>{{i.patientId}}</td>
+                            <th>{{i.specializeName}}</th>
+                            <td>
+                                <button type="button" class="btn btn-outline-danger py-2 px-3" (click)="CallPatient(i.key , i.windowNumber)">استدعاء</button>
+                            </td>
+                          </tr>
+
+
+                        </tbody>
+                      </table>
+
+                </div>
+            </div>
+
+
+            <ng-template #FinishedTickets> 
+              <div class="col-12">
+                <div class="mainTitle text-center my-3">
+                    <h5 class="d-inline text-danger">
+                      لا يوجد مرضى تم خدمتهم حاليا
+                    </h5>
+                </div>
+              </div>
+          </ng-template>
+
+
+
+        </div>
+    </div>
+
+
+</div> 
+
+
+
+
+
+  <!-- عرض السبينر لما يكون التحميل شغال -->
+  <div *ngIf="_APIService.loading$ | async" class="spinner-overlay">
+    <div class="spinner"></div>
+    <p class="loading-text">جاري التحميل...</p></div>

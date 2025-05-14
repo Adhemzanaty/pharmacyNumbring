@@ -1,0 +1,16 @@
+.footer{
+    padding: 30px;
+    background-color: #1C6758;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+@media all and (max-width: 992px) 
+{
+  .text-start{
+   text-align: center !important;
+  }
+  .myText h6{
+    text-align: center !important;
+   }
+  
+}

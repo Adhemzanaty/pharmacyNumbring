@@ -1,0 +1,96 @@
+<div>
+
+
+    <div class="d-flex align-items-center justify-content-center userOption">
+
+        <div class="container main-div row">
+
+
+
+            <div class="col-12">
+                <div class="mainTitle text-center my-3">
+                    <h1 class="d-inline">
+                        تحديث الشبابيك
+                    </h1>
+                </div>
+            </div>
+
+
+            <div class="col-12">
+                <div class="text-end formInput w-100  mb-4">
+                    <div class="btn-group w-100">
+                        <button type="button" class="btn btn-success dropdown-toggle w-100" data-bs-toggle="dropdown" aria-expanded="false">
+                         {{hospitalName}}
+                        </button>
+                        <ul class="dropdown-menu w-100 text-end" >
+
+                        <li *ngFor="let i of hospitals"><a class="dropdown-item"  (click)="getWindow(i)" >{{i.arName}}</a></li>
+                        
+                        </ul>
+                    </div>
+                </div>
+            </div>
+             
+
+            <div class="col-12">
+                <div class="mainTable">
+
+                    <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">الرقم </th>
+                            <th scope="col">شباك</th>
+                            <th scope="col">التحكم</th>
+
+
+                          </tr>
+                        </thead>
+                        <tbody>
+
+                          <tr *ngFor="let i of windowsData">
+                            <td>{{i.id}}</td>
+                            <th>{{i.windowNumber}}</th>
+
+
+                            <!-- <td>
+                                <button *ngIf="!i.isActive" type="button" (click)="updateWindows(i)" class="btn btn-success py-2 px-3">تشفيل</button>
+                                <button *ngIf="i.isActive" type="button"  (click)="updateWindows(i)" class="btn btn-danger py-2 px-3">تعطيل</button>
+
+
+                            </td> -->
+
+                            <td class="d-flex ">
+                                <div class="form-check form-switch " *ngIf="!i.isActive">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault"  style="width: 50px;" (click)="updateWindows(i)">
+                                  </div>
+
+                                  <div class="form-check form-switch" *ngIf="i.isActive">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="switchCheckChecked"  style="width: 50px;" (click)="updateWindows(i)"  checked>
+                                  </div>
+                            </td>
+                            
+                          </tr>
+
+
+
+                        </tbody>
+                      </table>
+
+                </div>
+            </div>
+
+
+            
+        </div>
+    </div>
+
+
+</div> 
+
+
+
+
+  <!-- عرض السبينر لما يكون التحميل شغال -->
+  <div *ngIf="_APIService.loading$ | async" class="spinner-overlay">
+    <div class="spinner"></div>
+    <p class="loading-text">جاري التحميل...</p></div>

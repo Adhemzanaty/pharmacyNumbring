@@ -1,0 +1,94 @@
+<div>
+
+
+  <div class="d-flex align-items-center justify-content-center userOption">
+
+    <div class="container main-div row">
+
+
+
+      <div class="col-12">
+        <div class="mainTitle text-center my-3">
+          <h1 class="d-inline">
+            المرضى في الانتظار لتحضير الوصفات
+          </h1>
+        </div>
+      </div>
+
+
+      <div class="col-12">
+        <div class="mainTable">
+
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">الاسم</th>
+                <th scope="col">الرقم الطبي</th>
+                <th scope="col">طباعة</th>
+                <th scope="col">جاهز للصرف</th>
+
+              </tr>
+            </thead>
+            <tbody>
+
+
+              <tr *ngFor="let i of GetConfirmToComeTicketsData" >
+                <th *ngIf="i.medicinePrepStatus">{{i.patientName}}</th>
+                <td *ngIf="i.medicinePrepStatus">{{i.patientId}}</td>
+
+                <td *ngIf="i.medicinePrepStatus">
+                  <button type="button" class="btn btn-outline-secondary py-2 px-3">طباعة</button>
+                </td>
+
+                <td *ngIf="i.medicinePrepStatus">
+                  <button type="button" data-bs-toggle="modal" [attr.data-bs-target]="'#'+i.key"
+                    class="btn btn-outline-success py-2 px-3">جاهز للصرف</button>
+                </td>
+
+
+                <div class="modal fade" [id]="i.key" tabindex="-1" aria-labelledby="exampleModalLabel" *ngIf="i.medicinePrepStatus"
+                  aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+
+                      <div class="modal-body">
+
+                        تاكيد جاهزية الوصفة
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">اغلاق</button>
+                        <button type="button" class="btn btn-success"
+                          (click)="confirmSetTicketToFinishPreperation(i.key)" data-bs-dismiss="modal">تأكيد</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+
+              </tr>
+
+
+
+
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+
+
+</div>
+
+
+  <!-- عرض السبينر لما يكون التحميل شغال -->
+  <div *ngIf="_APIService.loading$ | async" class="spinner-overlay">
+    <div class="spinner"></div>
+    <p class="loading-text">جاري التحميل...</p></div>

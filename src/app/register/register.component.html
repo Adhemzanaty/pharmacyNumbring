@@ -1,0 +1,131 @@
+<div class="mainLogin" >
+
+
+    <div class="row" style="height: 94vh;">
+
+
+
+
+        <div class="col-xl-7 col-lg-12 col-md-12 imgLogin ">
+
+            <div class="mybg-dark">
+
+            </div>
+           
+        </div>
+
+
+        <div class="col-xl-5 col-lg-12 col-md-12 formLogin ">
+
+            <div class="bg"></div>
+            <div class="bg bg2"></div>
+            <div class="bg bg3"></div>
+
+            <div class="text-center d-flex align-items-center justify-content-center"
+                style="height: 100%;">
+
+                <div class="container formContent ">
+                    <h1 class="my-3">صيدليات القوات المسلحة بمنطقة الطائف</h1>
+                    <h3>تسجيل جديد</h3>
+
+
+
+                    <form [formGroup]="registerForm" (ngSubmit)="registerFun(registerForm)">
+                        <div class="text-end formInput">
+                            <label class="p-2">الاسم</label>
+                            <input type="text" class="form-control" formControlName="name">
+                            <!-- <p *ngIf="registerForm.controls.name.invalid && registerForm.controls.name.touched"> الرجاء ادخال الاسم بالكامل</p> -->
+
+                            <div *ngIf="registerForm.controls.name.invalid && registerForm.controls.name.touched" class="alert alert-danger m-1" role="alert">
+                                الرجاء ادخال الاسم بالكامل
+                              </div>
+
+                        </div>
+                        <div class="text-end formInput">
+                            <label class="p-2">اسم المستخدم</label>
+                            <input type="text" class="form-control" formControlName="userName">
+
+                            <div *ngIf="registerForm.controls.userName.invalid && registerForm.controls.userName.touched" class="alert alert-danger m-1" role="alert">
+                                الرجاء ادخال اسم مستخدم صالح
+                              </div>
+                        </div>
+                        <div class="text-end formInput">
+                            <label class="p-2">اسم رول</label>
+                            <input type="text" class="form-control" formControlName="roleName">
+
+                            <div *ngIf="registerForm.controls.roleName.invalid && registerForm.controls.roleName.touched" class="alert alert-danger m-1" role="alert">
+                                الرجاء ادخال روول 
+                              </div>
+                        </div>
+                        <div class="text-end formInput">
+                            <label class="p-2">كلمة المرور</label>
+                            <input type="password" class="form-control " formControlName="password">
+
+                            <div *ngIf="registerForm.controls.password.invalid && registerForm.controls.password.touched" class="alert alert-danger m-1" role="alert">
+                                الرجاء ادخال كلمة المرور
+                              </div>
+                        </div>
+                        <!-- <div class="text-end formInput w-100 ">
+                            <div class="btn-group w-100">
+                                <button type="button" class="btn btn-success dropdown-toggle w-100" data-bs-toggle="dropdown" aria-expanded="false">
+                                 رقم الشباك
+                                </button>
+                                <ul class="dropdown-menu w-100">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                
+                                </ul>
+                            </div>
+                        </div> -->
+
+                        <button class="btn btn-success" type="submit" [disabled]="registerForm.invalid">تسجيل جديد </button>
+                    </form>
+
+
+
+
+
+
+                    
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal" id="alertBtn"> 
+    Launch demo modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div> -->
+        <div class="modal-body" id="alertBody">
+        {{message}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">اغلاق</button>
+          <!-- <button type="button" class="btn btn-success">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- عرض السبينر لما يكون التحميل شغال -->
+  <div *ngIf="_APIService.loading$ | async" class="spinner-overlay">
+    <div class="spinner"></div>
+    <p class="loading-text">جاري التحميل...</p></div>

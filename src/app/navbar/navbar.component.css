@@ -1,0 +1,25 @@
+.nav-bg{
+    background-color: #1c6759 !important;
+    padding-inline: 20px;
+}
+.navbar-brand , .nav-link{
+    color: white !important;
+    padding: 3px;
+    margin: 3px ;
+}
+.activeLink{
+    /* background-color: white; */
+    border-bottom: 3px solid white ;
+    border-radius: 3px;
+
+}
+
+
+
+@media all and (max-width: 550px) 
+{
+    .navbar-brand{
+        font-size: 14px;
+    }
+  
+}

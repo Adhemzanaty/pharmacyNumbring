@@ -1,0 +1,110 @@
+ <div>
+
+
+        <div class="d-flex align-items-center justify-content-center userOption">
+
+            <div class="container main-div row">
+
+            
+                <div class="col-12">
+                    <div class="mainTitle text-center">
+                        <h5 class="d-inline">
+                           عزيزي المراجع {{GetTicketInormationData?.patientName}} رقم طبي {{GetTicketInormationData?.patientId}} لديك طلب صرف وصفة طبية جديدة الرجاء الضغط على احد الخيارات الاتية
+                        </h5>
+                    </div>
+                </div>
+
+
+                <div class="col-xl-12 col-lg-12 col-md-12">
+                    <div class="mainButtons">
+                        <button type="button" class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#button1" >الحصول على رقم  انتظار في الصيدلية لاستلام الوصفة الطبية</button>
+                    </div>
+                </div>
+
+                <div class="col-xl-6 col-lg-6 col-md-12">
+                    <div class="mainButtons">
+                        <button type="button" class="btn btn-outline-success w-100" data-bs-toggle="modal" data-bs-target="#button2">توصيل الوصفة الطبية عن طريق سبل</button>
+
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-12">
+                    <div class="mainButtons">
+                        <button type="button" class="btn btn-outline-danger w-100" data-bs-toggle="modal" data-bs-target="#button3">لا اريد الحصول على الوصفة الطبية</button>
+
+                    </div>
+                </div>
+              
+
+
+
+
+
+            </div>
+        </div>
+
+
+</div> 
+
+
+<div class="modal fade" id="button1" tabindex="-1" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog">
+  <div class="modal-content">
+
+    <div class="modal-body">
+
+     هل انت متاكد انك تريد الحصول على رقم انتظار في الصيدلية لاستلام الوصفة الطبية
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">اغلاق</button>
+      <button type="button" class="btn btn-success"
+      (click)=" ConfirmToAttend()" data-bs-dismiss="modal">تأكيد</button>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+<div class="modal fade" id="button2" tabindex="-1" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog">
+  <div class="modal-content">
+
+    <div class="modal-body">
+
+     هل انت متاكد انك تريد توصيل الوصفة الطبية عن طريق سبل
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">اغلاق</button>
+      <button type="button" class="btn btn-success"
+      (click)=" ConfirmSPL()" data-bs-dismiss="modal">تأكيد</button>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="modal fade" id="button3" tabindex="-1" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog">
+  <div class="modal-content">
+
+    <div class="modal-body">
+
+     هل انت متاكد انك لا تريد الحصول على الوصفة الطبية
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">اغلاق</button>
+      <button type="button" class="btn btn-success"
+      (click)=" ConfirmNoNeed()" data-bs-dismiss="modal">تأكيد</button>
+    </div>
+  </div>
+</div>
+</div>
+
+
+  <!-- عرض السبينر لما يكون التحميل شغال -->
+  <div *ngIf="_APIService.loading$ | async" class="spinner-overlay">
+    <div class="spinner"></div>
+    <p class="loading-text">جاري التحميل...</p></div>

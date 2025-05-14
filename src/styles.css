@@ -1,1 +1,82 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+*{
+  font-family: "Cairo", sans-serif;
+    /* color: white; */
+
+}
+/* #particles1 {
+    width: 100%;
+    height: 100%;
+    min-height: 93vh;
+    background-color: #f2f9f5;
+
+    top: 0;
+    z-index: -999999999999;
+
+  }
+  
+  
+  #intro {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    padding: 0 20px;
+    width: 100%;
+
+    text-align: center;
+  } */
+body{
+    background-color: #f2f9f5;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    /* overflow: hidden; */
+}
+input{
+  padding: 13px 10px !important;
+}
+input {
+  margin: auto;
+  border: 1px solid #1C6758;
+}
+input:focus {
+      border: 2px solid #28A745;
+      box-shadow: 0 0 3px 2px rgba(40,167,69,0.3);
+      border-radius: 25px;
+}
+
+.spinner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.97); /* خلفية شفافة بيضاء */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000; /* فوق كل شيء */
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #1C6758; /* لون الجزء المتحرك */
+  border-radius: 50%;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #555;
+}

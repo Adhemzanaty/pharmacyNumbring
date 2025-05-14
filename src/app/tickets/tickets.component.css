@@ -1,0 +1,92 @@
+
+.mainTickets{
+    background-color: #f2f9f5;
+    min-height: 94vh;
+}
+.mainTicket{
+    background-color: white;
+    border: 2px solid #1c6759;
+    border-radius: 10px;
+    margin: 10px 0;
+    text-align: center;
+    overflow: hidden;
+}
+.firstPart{
+    background-color: #1c6759;
+    padding-bottom: 8px;
+    padding-top: 15px;
+    color: white;
+    
+}
+.secondPart{
+    background-color: white;
+    padding-bottom: 2px;
+    padding-top: 10px;
+    color: #1c6759;
+    /* border-bottom: 2px solid #1c6759; */
+}
+.secondPart h1{
+font-size: 100px;
+padding: 0;
+margin: 0;
+
+}
+.roomSpan{
+    margin: 2px;
+    border: 2px solid white;
+    padding: 0px 15px;
+    font-size: 25px;
+    /* line-height: normal; */
+    border-radius: 10px;
+}
+
+.dangerTicketFirst{
+    background-color: crimson;
+    padding-bottom: 8px;
+    padding-top: 15px;
+    color: white;
+
+    animation-name: ticket1;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;    
+}
+.dangerTicketSecond{
+    color: crimson;
+    background-color: white;
+    padding-bottom: 2px;
+    padding-top: 10px;
+    animation-name: ticket2;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;    
+}
+.dangerTicket{
+    border: 2px solid crimson;
+    background-color: white;
+    border-radius: 10px;
+    margin: 10px 0;
+    text-align: center;
+    overflow: hidden;
+
+    animation-name: ticket3;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;    
+}
+.dangerTicketSecond h1{
+    font-size: 100px;
+    padding: 0;
+    margin: 0;
+    
+    }
+
+@keyframes ticket1 {
+    from {background-color: #880808;}
+    to {background-color: #FF0000;}
+  }
+  @keyframes ticket2 {
+    from {color: #880808;}
+    to {color: #FF0000;}
+  }
+  @keyframes ticket3 {
+    from {border:2px solid #880808;}
+    to {border:2px solid #FF0000;}
+  }

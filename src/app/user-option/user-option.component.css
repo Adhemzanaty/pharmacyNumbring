@@ -1,0 +1,41 @@
+.userOption{
+    min-height: 94vh;
+    overflow: hidden;
+
+}
+.main-div{
+        padding: 20px;
+}
+.mainTitle{
+    padding: 20px 40px;
+    text-align: justify;
+}
+.mainTitle i{
+    padding: 5px 12px;
+    font-size: 16px;
+    border-radius: 50%;
+    border: 2px solid #1C6758;
+    color: #1C6758;
+
+}
+.mainTitle h5{
+    padding: 15px 5px;
+    font-size: 20px;
+}
+.mainButtons{
+    padding: 20px;
+}
+.mainButtons button{
+    padding: 20px 0;
+}
+
+@media all and (max-width: 576px) 
+{
+    .main-div{
+        padding: 0px;
+    }
+    .mainTitle{
+        padding: 20px 10px;
+    }
+  
+}

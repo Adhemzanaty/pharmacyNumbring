@@ -1,0 +1,63 @@
+.userOption{
+    min-height: 94vh;
+    padding-bottom: 50px;
+    overflow: hidden;
+
+}
+.main-div{
+        padding: 20px;
+}
+.mainTitle{
+    padding: 20px 40px;
+}
+.mainTitle h4{
+    font-size: 50px;
+    padding: 0 33px;
+    border-radius: 50%;
+    border: 3px solid #1C6758;
+    transition: all 0.5s;
+    
+}
+.mainTitle h4:hover{
+    background-color: #1C6758;
+    color: white;
+    
+}
+.spanNum{
+    font-size: 25px;
+    padding: 0 16px;
+    border-radius: 50%;
+    border: 3px solid #1C6758;
+    transition: all 0.5s;
+
+}
+.spanNum:hover{
+    background-color: #1C6758;
+    color: white;
+    
+}
+.mainTitle i{
+    padding: 5px 12px;
+    font-size: 16px;
+    border-radius: 50%;
+    border: 2px solid #1C6758;
+    color: #1C6758;
+
+}
+.mainTitle h5{
+    padding: 15px 5px;
+    font-size: 20px;
+}
+.mainButtons{
+    padding: 20px;
+}
+.mainButtons button{
+    padding: 20px 0;
+}
+.table > :not(caption) > * > * {
+    background-color: transparent !important;
+}
+.form-check-input:checked {
+    background-color: #1C6758;
+    border-color: #1C6758;
+}
